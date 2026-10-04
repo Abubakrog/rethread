@@ -41,27 +41,29 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-stone-200">
       {/* Top Eco Announcement Bar */}
-      <div className="bg-rethread-800 text-stone-100 text-xs py-1.5 px-4 text-center font-medium flex items-center justify-center gap-2">
-        <Leaf className="w-3.5 h-3.5 text-emerald-400 inline" />
-        <span>Give pre-loved clothes a fresh life. Save ~2,700L of water with every thrifted item!</span>
-        <Link to="/shop" className="underline underline-offset-2 hover:text-emerald-300 ml-1">
-          Explore Drops &rarr;
+      <div className="bg-rethread-800 text-stone-100 text-[11px] sm:text-xs py-1.5 px-3 sm:px-4 text-center font-medium flex items-center justify-center gap-1.5 sm:gap-2">
+        <Leaf className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+        <span className="truncate">
+          Give pre-loved clothes a fresh life. Save ~2,700L water per item!
+        </span>
+        <Link to="/shop" className="underline underline-offset-2 hover:text-emerald-300 ml-1 shrink-0 font-semibold">
+          Drops &rarr;
         </Link>
       </div>
 
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+      <nav className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <div className="flex items-center gap-8">
-            <Link to="/" className="flex items-center gap-2.5 group">
-              <div className="w-10 h-10 rounded-xl bg-rethread-700 flex items-center justify-center text-white shadow-sm group-hover:bg-rethread-800 transition">
-                <Leaf className="w-5 h-5 text-emerald-300 transform -rotate-12" />
+          <div className="flex items-center gap-4 sm:gap-8">
+            <Link to="/" className="flex items-center gap-2 group">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-rethread-700 flex items-center justify-center text-white shadow-sm group-hover:bg-rethread-800 transition">
+                <Leaf className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-300 transform -rotate-12" />
               </div>
               <div>
-                <span className="text-2xl font-bold font-display tracking-tight text-rethread-900 block leading-tight">
+                <span className="text-xl sm:text-2xl font-bold font-display tracking-tight text-rethread-900 block leading-tight">
                   rethread<span className="text-vintage-terracotta">.</span>
                 </span>
-                <span className="text-[10px] tracking-widest text-stone-500 uppercase block font-semibold">
+                <span className="text-[9px] sm:text-[10px] tracking-widest text-stone-500 uppercase block font-semibold">
                   Pre-loved & Vintage
                 </span>
               </div>
@@ -88,40 +90,41 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Search Bar */}
-          <div className="hidden md:flex flex-1 max-w-xs mx-6">
+          {/* Search Bar (Desktop) */}
+          <div className="hidden md:flex flex-1 max-w-xs mx-4 lg:mx-6">
             <form onSubmit={handleSearchSubmit} className="relative w-full">
               <input
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search vintage denim, jackets, brands..."
-                className="w-full pl-9 pr-4 py-2 bg-stone-100/90 hover:bg-stone-100 focus:bg-white text-sm rounded-full border border-stone-200 focus:outline-none focus:ring-2 focus:ring-rethread-600 focus:border-transparent transition"
+                placeholder="Search vintage denim, jackets..."
+                className="w-full pl-9 pr-4 py-2 bg-stone-100/90 hover:bg-stone-100 focus:bg-white text-xs sm:text-sm rounded-full border border-stone-200 focus:outline-none focus:ring-2 focus:ring-rethread-600 transition"
               />
               <Search className="w-4 h-4 text-stone-400 absolute left-3 top-2.5" />
             </form>
           </div>
 
           {/* Right Action Icons & Buttons */}
-          <div className="flex items-center gap-3 sm:gap-4">
+          <div className="flex items-center gap-1.5 sm:gap-3">
             {/* Sell Button */}
             <Link
               to="/sell"
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-rethread-700 hover:bg-rethread-800 text-white text-xs sm:text-sm font-medium shadow-sm transition transform hover:-translate-y-0.5"
+              className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-full bg-rethread-700 hover:bg-rethread-800 text-white text-xs sm:text-sm font-medium shadow-sm transition transform hover:-translate-y-0.5"
             >
-              <PlusCircle className="w-4 h-4 text-emerald-300" />
-              <span>Sell Clothes</span>
+              <PlusCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-300" />
+              <span className="hidden xs:inline">Sell</span>
+              <span className="hidden sm:inline">Clothes</span>
             </Link>
 
             {/* Wishlist */}
             <Link
               to="/wishlist"
-              className="relative p-2 text-stone-600 hover:text-rethread-700 hover:bg-stone-100 rounded-full transition"
+              className="relative p-1.5 sm:p-2 text-stone-600 hover:text-rethread-700 hover:bg-stone-100 rounded-full transition"
               title="Saved items"
             >
-              <Heart className="w-5 h-5" />
+              <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
               {wishlist.length > 0 && (
-                <span className="absolute top-1 right-1 w-4 h-4 bg-vintage-terracotta text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+                <span className="absolute top-0 right-0 sm:top-1 sm:right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 bg-vintage-terracotta text-white text-[9px] sm:text-[10px] font-bold rounded-full flex items-center justify-center">
                   {wishlist.length}
                 </span>
               )}
@@ -130,30 +133,30 @@ const Navbar = () => {
             {/* Cart / Eco-Bag */}
             <Link
               to="/cart"
-              className="relative p-2 text-stone-600 hover:text-rethread-700 hover:bg-stone-100 rounded-full transition"
+              className="relative p-1.5 sm:p-2 text-stone-600 hover:text-rethread-700 hover:bg-stone-100 rounded-full transition"
               title="Eco-Bag"
             >
-              <ShoppingBag className="w-5 h-5" />
+              <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5" />
               {itemsCount > 0 && (
-                <span className="absolute top-1 right-1 w-4 h-4 bg-rethread-700 text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+                <span className="absolute top-0 right-0 sm:top-1 sm:right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 bg-rethread-700 text-white text-[9px] sm:text-[10px] font-bold rounded-full flex items-center justify-center">
                   {itemsCount}
                 </span>
               )}
             </Link>
 
-            {/* User Dropdown / Login */}
+            {/* User Dropdown / Login (Desktop) */}
             {user ? (
-              <div className="relative">
+              <div className="relative hidden sm:block">
                 <button
                   onClick={() => setUserDropdownOpen(!userDropdownOpen)}
-                  className="flex items-center gap-2 p-1.5 rounded-full hover:bg-stone-100 border border-stone-200 transition focus:outline-none"
+                  className="flex items-center gap-2 p-1 rounded-full hover:bg-stone-100 border border-stone-200 transition focus:outline-none"
                 >
                   <img
                     src={user.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100'}
                     alt={user.name}
-                    className="w-8 h-8 rounded-full object-cover ring-2 ring-rethread-500"
+                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover ring-2 ring-rethread-500"
                   />
-                  <span className="hidden sm:inline text-xs font-semibold text-stone-700 max-w-[80px] truncate">
+                  <span className="hidden md:inline text-xs font-semibold text-stone-700 max-w-[80px] truncate">
                     {user.name.split(' ')[0]}
                   </span>
                 </button>
@@ -228,7 +231,7 @@ const Navbar = () => {
             ) : (
               <Link
                 to="/login"
-                className="text-xs sm:text-sm font-semibold text-stone-700 hover:text-rethread-700 px-3 py-2 rounded-lg hover:bg-stone-100 transition"
+                className="hidden sm:inline-block text-xs sm:text-sm font-semibold text-stone-700 hover:text-rethread-700 px-3 py-2 rounded-lg hover:bg-stone-100 transition"
               >
                 Sign In
               </Link>
@@ -237,7 +240,8 @@ const Navbar = () => {
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-stone-600 hover:text-stone-900 rounded-lg focus:outline-none"
+              className="lg:hidden p-1.5 text-stone-600 hover:text-stone-900 rounded-lg focus:outline-none"
+              aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -246,58 +250,130 @@ const Navbar = () => {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-stone-200 py-4 space-y-3 bg-[#FAF7F2]">
-            <form onSubmit={handleSearchSubmit} className="relative w-full px-2 mb-3">
+          <div className="lg:hidden border-t border-stone-200 py-3 space-y-3 bg-[#FAF7F2]">
+            {/* Mobile Search */}
+            <form onSubmit={handleSearchSubmit} className="relative w-full px-2">
               <input
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search vintage denim, tees..."
-                className="w-full pl-9 pr-4 py-2 bg-stone-100 text-sm rounded-full border border-stone-200"
+                placeholder="Search vintage denim, jackets..."
+                className="w-full pl-9 pr-4 py-2 bg-white text-xs rounded-full border border-stone-300 focus:outline-none focus:ring-2 focus:ring-rethread-600"
               />
-              <Search className="w-4 h-4 text-stone-400 absolute left-5 top-3" />
+              <Search className="w-4 h-4 text-stone-400 absolute left-5 top-2.5" />
             </form>
 
-            <div className="flex flex-col space-y-2 px-2 text-sm font-medium text-stone-700">
+            {/* User status card on mobile */}
+            {user ? (
+              <div className="mx-2 p-3 bg-white rounded-2xl border border-stone-200 shadow-sm flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <img
+                    src={user.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100'}
+                    alt={user.name}
+                    className="w-9 h-9 rounded-full object-cover ring-2 ring-rethread-500"
+                  />
+                  <div>
+                    <p className="text-xs font-bold text-stone-900 leading-tight">{user.name}</p>
+                    <p className="text-[10px] text-emerald-700 font-semibold flex items-center gap-1 mt-0.5">
+                      <Leaf className="w-3 h-3 text-emerald-600" />
+                      {user.ecoPoints || 50} Eco Points
+                    </p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    logout();
+                  }}
+                  className="p-1.5 text-stone-400 hover:text-red-500"
+                  title="Sign Out"
+                >
+                  <LogOut className="w-4 h-4" />
+                </button>
+              </div>
+            ) : (
+              <div className="px-2">
+                <Link
+                  to="/login"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full py-2 bg-stone-900 text-white text-xs font-semibold rounded-xl block text-center shadow"
+                >
+                  Sign In to Account
+                </Link>
+              </div>
+            )}
+
+            {/* Nav links */}
+            <div className="flex flex-col space-y-1 px-2 text-xs font-medium text-stone-700">
               <Link
                 to="/shop"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg hover:bg-stone-100"
+                className="px-3 py-2 rounded-xl hover:bg-stone-100"
               >
                 Browse All Drops
               </Link>
               <Link
                 to="/shop?category=Vintage%20%26%20Rare"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg hover:bg-stone-100 text-amber-700 font-semibold"
+                className="px-3 py-2 rounded-xl hover:bg-stone-100 text-amber-800 font-semibold flex items-center gap-1.5"
               >
+                <Sparkles className="w-3.5 h-3.5 text-amber-600" />
                 Vintage & Rare Curated
               </Link>
               <Link
                 to="/shop?gender=Women"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg hover:bg-stone-100"
+                className="px-3 py-2 rounded-xl hover:bg-stone-100"
               >
                 Women's Thrift
               </Link>
               <Link
                 to="/shop?gender=Men"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg hover:bg-stone-100"
+                className="px-3 py-2 rounded-xl hover:bg-stone-100"
               >
                 Men's Thrift
               </Link>
               <Link
                 to="/eco-impact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg hover:bg-emerald-50 text-emerald-800"
+                className="px-3 py-2 rounded-xl hover:bg-emerald-50 text-emerald-800"
               >
                 Eco Impact Tracker
               </Link>
+
+              {user && (
+                <>
+                  <Link
+                    to="/profile"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="px-3 py-2 rounded-xl hover:bg-stone-100"
+                  >
+                    My Profile & Closet
+                  </Link>
+                  <Link
+                    to="/orders"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="px-3 py-2 rounded-xl hover:bg-stone-100"
+                  >
+                    My Purchases
+                  </Link>
+                  {isAdmin && (
+                    <Link
+                      to="/admin"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="px-3 py-2 rounded-xl bg-amber-50 text-amber-900 font-semibold"
+                    >
+                      Admin Console
+                    </Link>
+                  )}
+                </>
+              )}
+
               <Link
                 to="/sell"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg bg-rethread-700 text-white font-medium text-center"
+                className="mt-2 px-3 py-2.5 bg-rethread-700 text-white font-semibold rounded-xl text-center shadow"
               >
                 + Sell Your Clothes
               </Link>
