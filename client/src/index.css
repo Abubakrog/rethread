@@ -7,35 +7,44 @@
     @apply bg-[#FAF7F2] text-stone-800 antialiased font-sans;
   }
 
+  /* Playfair carries headlines at regular and medium weight only */
   h1, h2, h3, .font-display {
     font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 500;
   }
-}
 
-/* Custom thrift aesthetic styling */
-.badge-eco {
-  @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800 border border-emerald-200;
+  .lucide {
+    stroke-width: 1.75;
+  }
+
+  :focus-visible {
+    outline: 2px solid #3e6740;
+    outline-offset: 2px;
+  }
 }
 
 .badge-condition {
   @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-stone-100 text-stone-700 border border-stone-200;
 }
 
-/* Custom scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
-
 ::-webkit-scrollbar-track {
   background: #f1ede4;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #cbdacb;
+  background: #d6cfc2;
   border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #759f77;
+  background: #a8a29e;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+  }
 }

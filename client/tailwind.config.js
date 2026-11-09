@@ -27,11 +27,22 @@ export default {
           rust: '#9E3D23',
           mustard: '#D99B26',
           denim: '#34526f',
+        },
+        kraft: {
+          DEFAULT: '#d9c3a0',
+          light: '#e8d8bd',
+          ink: '#4a3b28',
         }
       },
       fontFamily: {
         serif: ['"Playfair Display"', 'Georgia', 'serif'],
         sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+      },
+      transitionTimingFunction: {
+        DEFAULT: 'cubic-bezier(0.22, 1, 0.36, 1)',
+      },
+      transitionDuration: {
+        DEFAULT: '160ms',
       },
     },
   },

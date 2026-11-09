@@ -5,9 +5,6 @@ import {
   CloudRain,
   Trees,
   Leaf,
-  Sparkles,
-  ArrowRight,
-  ShieldCheck,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import api from '../api/axios';
@@ -67,12 +64,12 @@ const EcoImpact = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
       {/* Hero Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200">
-          <Leaf className="w-3.5 h-3.5 text-emerald-600" />
-          <span>The Rethread Sustainability Index</span>
+        <div className="inline-flex items-center gap-1.5 px-4 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800 border border-emerald-200">
+          <Leaf className="w-4 h-4 text-emerald-600" />
+          <span>The Rethread sustainability index</span>
         </div>
-        <h1 className="text-4xl sm:text-5xl font-display font-bold text-stone-900 leading-tight">
-          How Choosing Thrift Changes the Planet
+        <h1 className="text-4xl sm:text-5xl font-display font-medium text-stone-900 leading-tight">
+          How choosing thrift changes the planet
         </h1>
         <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
           Over 92 million tonnes of textile waste end up in incinerators and landfills every single year.
@@ -87,10 +84,10 @@ const EcoImpact = () => {
             <div className="w-12 h-12 mx-auto rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-3">
               <Recycle className="w-6 h-6" />
             </div>
-            <p className="text-3xl sm:text-4xl font-display font-bold">
+            <p className="text-3xl sm:text-4xl font-display font-medium">
               {metrics.garmentsRehomed.toLocaleString()}
             </p>
-            <p className="text-xs text-stone-300 mt-1 uppercase font-semibold">
+            <p className="text-xs text-stone-300 mt-1 font-medium">
               Garments Saved from Landfill
             </p>
           </div>
@@ -99,11 +96,11 @@ const EcoImpact = () => {
             <div className="w-12 h-12 mx-auto rounded-2xl bg-sky-500/20 text-sky-400 flex items-center justify-center mb-3">
               <Droplets className="w-6 h-6" />
             </div>
-            <p className="text-3xl sm:text-4xl font-display font-bold">
+            <p className="text-3xl sm:text-4xl font-display font-medium">
               {metrics.waterSavedLitres.toLocaleString()}L
             </p>
-            <p className="text-xs text-stone-300 mt-1 uppercase font-semibold">
-              Clean Water Conserved
+            <p className="text-xs text-stone-300 mt-1 font-medium">
+              Clean water conserved
             </p>
           </div>
 
@@ -111,11 +108,11 @@ const EcoImpact = () => {
             <div className="w-12 h-12 mx-auto rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center mb-3">
               <CloudRain className="w-6 h-6" />
             </div>
-            <p className="text-3xl sm:text-4xl font-display font-bold">
+            <p className="text-3xl sm:text-4xl font-display font-medium">
               {metrics.co2OffsetKg.toLocaleString()} kg
             </p>
-            <p className="text-xs text-stone-300 mt-1 uppercase font-semibold">
-              Carbon Emissions Diverted
+            <p className="text-xs text-stone-300 mt-1 font-medium">
+              Carbon emissions diverted
             </p>
           </div>
 
@@ -123,11 +120,11 @@ const EcoImpact = () => {
             <div className="w-12 h-12 mx-auto rounded-2xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center mb-3">
               <Trees className="w-6 h-6" />
             </div>
-            <p className="text-3xl sm:text-4xl font-display font-bold">
+            <p className="text-3xl sm:text-4xl font-display font-medium">
               ~{metrics.treesEquivalent}
             </p>
-            <p className="text-xs text-stone-300 mt-1 uppercase font-semibold">
-              Yearly Tree Absorption Equivalent
+            <p className="text-xs text-stone-300 mt-1 font-medium">
+              Yearly tree absorption equivalent
             </p>
           </div>
         </div>
@@ -136,11 +133,11 @@ const EcoImpact = () => {
       {/* Garment Impact Breakdown */}
       <section className="space-y-6">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-rethread-700">
+          <span className="text-xs font-medium text-rethread-700">
             Per-Item Calculations
           </span>
-          <h2 className="text-2xl sm:text-3xl font-display font-bold text-stone-900 mt-1">
-            Water & Carbon Saved Per Category
+          <h2 className="text-2xl sm:text-3xl font-display font-medium text-stone-900 mt-1">
+            Water and carbon saved per category
           </h2>
           <p className="text-xs text-stone-500 mt-1">
             Manufacturing new clothing requires massive raw material cultivation, toxic dyes, and chemical washing.
@@ -154,18 +151,18 @@ const EcoImpact = () => {
                 <img src={c.image} alt={c.type} className="w-full h-full object-cover" />
               </div>
               <div className="p-5 space-y-3">
-                <h3 className="font-display font-bold text-lg text-stone-900">{c.type}</h3>
+                <h3 className="font-display font-medium text-lg text-stone-900">{c.type}</h3>
                 <div className="space-y-1.5 text-xs">
-                  <div className="flex justify-between text-emerald-800 font-bold bg-emerald-50 px-2.5 py-1 rounded-lg">
+                  <div className="flex justify-between text-emerald-800 font-medium bg-emerald-50 px-3 py-1 rounded-lg">
                     <span>Water Saved:</span>
                     <span>{c.water.toLocaleString()} Litres</span>
                   </div>
-                  <div className="flex justify-between text-amber-800 font-bold bg-amber-50 px-2.5 py-1 rounded-lg">
+                  <div className="flex justify-between text-amber-800 font-medium bg-amber-50 px-3 py-1 rounded-lg">
                     <span>CO₂ Avoided:</span>
                     <span>{c.co2} kg</span>
                   </div>
                 </div>
-                <p className="text-[11px] text-stone-500 italic pt-1">{c.equivalent}</p>
+                <p className="text-[11px] text-stone-500 pt-1">{c.equivalent}</p>
               </div>
             </div>
           ))}
@@ -175,7 +172,7 @@ const EcoImpact = () => {
       {/* Circular Manifesto & CTA */}
       <section className="bg-vintage-sand/70 rounded-3xl p-8 sm:p-12 border border-stone-200 flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="space-y-3 max-w-xl text-center md:text-left">
-          <h3 className="text-2xl font-display font-bold text-stone-900">
+          <h3 className="text-2xl font-display font-medium text-stone-900">
             Be part of the circular wardrobe solution
           </h3>
           <p className="text-sm text-stone-600 leading-relaxed">
@@ -186,13 +183,13 @@ const EcoImpact = () => {
         <div className="flex gap-4">
           <Link
             to="/shop"
-            className="px-6 py-3 bg-rethread-700 hover:bg-rethread-800 text-white rounded-full text-xs font-semibold shadow transition"
+            className="px-6 py-3 bg-rethread-700 hover:bg-rethread-800 text-white rounded-full text-xs font-medium shadow transition"
           >
-            Shop Thrift Drops
+            Shop thrift drops
           </Link>
           <Link
             to="/sell"
-            className="px-6 py-3 bg-white hover:bg-stone-50 text-stone-800 rounded-full text-xs font-semibold border border-stone-300 shadow-sm transition"
+            className="px-6 py-3 bg-white hover:bg-stone-50 text-stone-800 rounded-full text-xs font-medium border border-stone-300 shadow-sm transition"
           >
             Sell Pre-Loved
           </Link>

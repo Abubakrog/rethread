@@ -115,8 +115,8 @@ function App() {
                   background: '#233725',
                   color: '#FAF7F2',
                   fontSize: '13px',
-                  borderRadius: '16px',
-                  boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.2)',
+                  borderRadius: '10px',
+                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)',
                 },
                 success: {
                   iconTheme: {

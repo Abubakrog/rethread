@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
       const { data } = await api.post('/auth/login', { email, password });
       setUser(data);
       localStorage.setItem('rethread_user', JSON.stringify(data));
-      toast.success(`Welcome back, ${data.name}! 🌿`);
+      toast.success(`Signed in as ${data.name}`);
       return { success: true };
     } catch (error) {
       const msg = error.response?.data?.message || 'Login failed. Please check your credentials.';
@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }) => {
       const { data } = await api.post('/auth/register', userData);
       setUser(data);
       localStorage.setItem('rethread_user', JSON.stringify(data));
-      toast.success(`Welcome to Rethread, ${data.name}! +50 Eco Points earned! 🌱`);
+      toast.success(`Account created. 50 Eco Points added`);
       return { success: true };
     } catch (error) {
       const msg = error.response?.data?.message || 'Registration failed.';
@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setUser(null);
     localStorage.removeItem('rethread_user');
-    toast.success('Signed out. See you soon!');
+    toast.success('Signed out');
   };
 
   const updateProfile = async (profileData) => {
@@ -57,7 +57,7 @@ export const AuthProvider = ({ children }) => {
       const { data } = await api.put('/auth/profile', profileData);
       setUser(data);
       localStorage.setItem('rethread_user', JSON.stringify(data));
-      toast.success('Profile updated successfully!');
+      toast.success('Profile updated');
       return { success: true };
     } catch (error) {
       const msg = error.response?.data?.message || 'Could not update profile.';

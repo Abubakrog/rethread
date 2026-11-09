@@ -110,7 +110,7 @@ const Shop = () => {
       {/* Header & Controls */}
       <div className="space-y-4 pb-6 border-b border-stone-200">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-          <h1 className="text-2xl sm:text-3xl font-display font-bold text-stone-900">
+          <h1 className="text-2xl sm:text-3xl font-display font-medium text-stone-900">
             {selectedCategory !== 'All' ? selectedCategory : 'All Pre-Loved Drops'}
           </h1>
           <p className="text-xs text-stone-500">
@@ -119,7 +119,7 @@ const Shop = () => {
         </div>
 
         {/* Search & Sort Controls (Responsive) */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3">
           {/* Search bar */}
           <div className="relative flex-1">
             <input
@@ -146,23 +146,23 @@ const Shop = () => {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="w-full appearance-none bg-white border border-stone-300 rounded-full pl-3.5 pr-8 py-2 text-xs font-semibold text-stone-700 focus:outline-none focus:ring-2 focus:ring-rethread-600 cursor-pointer shadow-sm truncate"
+                className="w-full appearance-none bg-white border border-stone-300 rounded-full pl-4 pr-8 py-2 text-xs font-medium text-stone-700 focus:outline-none focus:ring-2 focus:ring-rethread-600 cursor-pointer shadow-sm truncate"
               >
-                <option value="newest">Newest First</option>
+                <option value="newest">Newest first</option>
                 <option value="price-asc">Price: Low to High</option>
                 <option value="price-desc">Price: High to Low</option>
                 <option value="discount">Biggest Discount (%)</option>
-                <option value="rating">Top Rated</option>
+                <option value="rating">Top rated</option>
               </select>
-              <ChevronDown className="w-3.5 h-3.5 text-stone-500 absolute right-3 top-2.5 pointer-events-none" />
+              <ChevronDown className="w-4 h-4 text-stone-500 absolute right-3 top-2.5 pointer-events-none" />
             </div>
 
             {/* Mobile Filter Trigger Button */}
             <button
               onClick={() => setMobileFilterOpen(true)}
-              className="md:hidden flex items-center gap-1.5 px-4 py-2 bg-stone-900 text-white rounded-full text-xs font-semibold shadow-sm shrink-0"
+              className="md:hidden flex items-center gap-1.5 px-4 py-2 bg-stone-900 text-white rounded-full text-xs font-medium shadow-sm shrink-0"
             >
-              <SlidersHorizontal className="w-3.5 h-3.5 text-emerald-400" />
+              <SlidersHorizontal className="w-4 h-4 text-emerald-400" />
               <span>Filters {hasActiveFilters && '•'}</span>
             </button>
           </div>
@@ -173,7 +173,7 @@ const Shop = () => {
         {/* Desktop Sidebar Filters */}
         <aside className="hidden md:block space-y-6">
           <div className="flex items-center justify-between pb-4 border-b border-stone-200">
-            <span className="text-sm font-bold uppercase tracking-wider text-stone-800 flex items-center gap-1.5">
+            <span className="text-sm font-medium text-stone-800 flex items-center gap-1.5">
               <Filter className="w-4 h-4 text-rethread-700" /> Filters
             </span>
             {hasActiveFilters && (
@@ -188,7 +188,7 @@ const Shop = () => {
 
           {/* Categories */}
           <div>
-            <label className="text-xs font-bold text-stone-900 uppercase tracking-wider block mb-3">
+            <label className="text-xs font-medium text-stone-900 block mb-3">
               Category
             </label>
             <div className="space-y-1.5 max-h-48 overflow-y-auto pr-2">
@@ -196,9 +196,9 @@ const Shop = () => {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-medium transition flex items-center justify-between ${
+                  className={`w-full text-left px-3 py-1.5 rounded-lg text-xs font-medium transition flex items-center justify-between ${
                     selectedCategory === cat
-                      ? 'bg-rethread-700 text-white font-semibold'
+                      ? 'bg-rethread-700 text-white font-medium'
                       : 'text-stone-600 hover:bg-stone-100'
                   }`}
                 >
@@ -210,8 +210,8 @@ const Shop = () => {
 
           {/* Gender */}
           <div>
-            <label className="text-xs font-bold text-stone-900 uppercase tracking-wider block mb-2">
-              Department / Gender
+            <label className="text-xs font-medium text-stone-900 block mb-2">
+              Department / gender
             </label>
             <div className="flex flex-wrap gap-1.5">
               {genders.map((g) => (
@@ -232,7 +232,7 @@ const Shop = () => {
 
           {/* Size */}
           <div>
-            <label className="text-xs font-bold text-stone-900 uppercase tracking-wider block mb-2">
+            <label className="text-xs font-medium text-stone-900 block mb-2">
               Size
             </label>
             <div className="grid grid-cols-4 gap-1.5">
@@ -240,7 +240,7 @@ const Shop = () => {
                 <button
                   key={s}
                   onClick={() => setSelectedSize(s)}
-                  className={`py-1 text-center rounded-md text-xs font-semibold border transition ${
+                  className={`py-1 text-center rounded-md text-xs font-medium border transition ${
                     selectedSize === s
                       ? 'bg-stone-900 text-white border-stone-900'
                       : 'bg-white text-stone-600 border-stone-200 hover:border-stone-400'
@@ -254,8 +254,8 @@ const Shop = () => {
 
           {/* Condition */}
           <div>
-            <label className="text-xs font-bold text-stone-900 uppercase tracking-wider block mb-2">
-              Condition Grade
+            <label className="text-xs font-medium text-stone-900 block mb-2">
+              Condition grade
             </label>
             <div className="space-y-1.5">
               {conditions.map((cond) => (
@@ -280,10 +280,10 @@ const Shop = () => {
           {/* Max Price Slider */}
           <div>
             <div className="flex justify-between items-center mb-2">
-              <label className="text-xs font-bold text-stone-900 uppercase tracking-wider">
-                Max Price
+              <label className="text-xs font-medium text-stone-900">
+                Max price
               </label>
-              <span className="text-xs font-bold text-rethread-700">₹{maxPrice}</span>
+              <span className="text-xs font-medium text-rethread-700">₹{maxPrice}</span>
             </div>
             <input
               type="range"
@@ -294,7 +294,7 @@ const Shop = () => {
               onChange={(e) => setMaxPrice(e.target.value)}
               className="w-full accent-rethread-700 cursor-pointer"
             />
-            <div className="flex justify-between text-[10px] text-stone-400 mt-1">
+            <div className="flex justify-between text-[11px] text-stone-400 mt-1">
               <span>₹300</span>
               <span>₹5000+</span>
             </div>
@@ -304,7 +304,7 @@ const Shop = () => {
         {/* Product Grid Area */}
         <main className="md:col-span-3">
           {loading ? (
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
               {[...Array(6)].map((_, i) => (
                 <div key={i} className="bg-stone-200 animate-pulse aspect-[3/4] rounded-2xl"></div>
               ))}
@@ -314,7 +314,7 @@ const Shop = () => {
               <div className="w-14 h-14 mx-auto rounded-full bg-stone-100 flex items-center justify-center text-stone-400 mb-3">
                 <Search className="w-7 h-7" />
               </div>
-              <h3 className="text-base sm:text-lg font-bold font-display text-stone-800">
+              <h3 className="text-base sm:text-lg font-medium font-display text-stone-800">
                 No matching garments found
               </h3>
               <p className="text-xs text-stone-500 mt-1 mb-5">
@@ -322,13 +322,13 @@ const Shop = () => {
               </p>
               <button
                 onClick={resetFilters}
-                className="px-6 py-2.5 bg-rethread-700 hover:bg-rethread-800 text-white text-xs font-semibold rounded-full shadow transition"
+                className="px-6 py-3 bg-rethread-700 hover:bg-rethread-800 text-white text-xs font-medium rounded-full shadow transition"
               >
-                Reset All Filters
+                Reset all filters
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
               {products.map((product) => (
                 <ProductCard key={product._id} product={product} />
               ))}
@@ -346,7 +346,7 @@ const Shop = () => {
               <div className="flex items-center justify-between border-b border-stone-100 pb-3">
                 <div className="flex items-center gap-2">
                   <SlidersHorizontal className="w-4 h-4 text-rethread-700" />
-                  <h3 className="font-bold font-display text-lg text-stone-900">Filters</h3>
+                  <h3 className="font-medium font-display text-lg text-stone-900">Filters</h3>
                 </div>
                 <button
                   onClick={() => setMobileFilterOpen(false)}
@@ -358,7 +358,7 @@ const Shop = () => {
 
               {/* Categories */}
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-stone-800 mb-2">Category</p>
+                <p className="text-xs font-medium text-stone-800 mb-2">Category</p>
                 <div className="flex flex-wrap gap-1.5 max-h-36 overflow-y-auto">
                   {categories.map((c) => (
                     <button
@@ -378,7 +378,7 @@ const Shop = () => {
 
               {/* Department / Gender */}
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-stone-800 mb-2">Department</p>
+                <p className="text-xs font-medium text-stone-800 mb-2">Department</p>
                 <div className="flex flex-wrap gap-1.5">
                   {genders.map((g) => (
                     <button
@@ -398,13 +398,13 @@ const Shop = () => {
 
               {/* Size */}
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-stone-800 mb-2">Size</p>
+                <p className="text-xs font-medium text-stone-800 mb-2">Size</p>
                 <div className="grid grid-cols-4 gap-1.5">
                   {sizes.map((s) => (
                     <button
                       key={s}
                       onClick={() => setSelectedSize(s)}
-                      className={`py-1.5 text-center rounded-lg text-xs font-semibold border transition ${
+                      className={`py-1.5 text-center rounded-lg text-xs font-medium border transition ${
                         selectedSize === s
                           ? 'bg-stone-900 text-white border-stone-900'
                           : 'bg-white text-stone-700 border-stone-200'
@@ -418,7 +418,7 @@ const Shop = () => {
 
               {/* Condition */}
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-stone-800 mb-2">Condition</p>
+                <p className="text-xs font-medium text-stone-800 mb-2">Condition</p>
                 <div className="space-y-1.5">
                   {conditions.map((cond) => (
                     <label
@@ -442,8 +442,8 @@ const Shop = () => {
               {/* Max Price Slider */}
               <div>
                 <div className="flex justify-between items-center mb-1.5">
-                  <p className="text-xs font-bold uppercase tracking-wider text-stone-800">Max Price</p>
-                  <span className="text-xs font-bold text-rethread-700">₹{maxPrice}</span>
+                  <p className="text-xs font-medium text-stone-800">Max price</p>
+                  <span className="text-xs font-medium text-rethread-700">₹{maxPrice}</span>
                 </div>
                 <input
                   type="range"
@@ -462,14 +462,14 @@ const Shop = () => {
               {hasActiveFilters && (
                 <button
                   onClick={resetFilters}
-                  className="px-4 py-3 border border-stone-300 text-stone-700 text-xs font-semibold rounded-full"
+                  className="px-4 py-3 border border-stone-300 text-stone-700 text-xs font-medium rounded-full"
                 >
                   Reset
                 </button>
               )}
               <button
                 onClick={() => setMobileFilterOpen(false)}
-                className="flex-1 py-3 bg-rethread-700 text-white text-xs font-bold rounded-full shadow"
+                className="flex-1 py-3 bg-rethread-700 text-white text-xs font-medium rounded-full shadow"
               >
                 Show Results ({total})
               </button>

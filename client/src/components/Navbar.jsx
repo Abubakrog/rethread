@@ -8,7 +8,6 @@ import {
   User as UserIcon,
   Menu,
   X,
-  Sparkles,
   Leaf,
   LogOut,
   Package,
@@ -39,15 +38,12 @@ const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-stone-200">
+    <header className="sticky top-0 z-50 bg-[#FAF7F2]/95 backdrop-blur-sm border-b border-stone-900/10">
       {/* Top Eco Announcement Bar */}
-      <div className="bg-rethread-800 text-stone-100 text-[11px] sm:text-xs py-1.5 px-3 sm:px-4 text-center font-medium flex items-center justify-center gap-1.5 sm:gap-2">
-        <Leaf className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-        <span className="truncate">
-          Give pre-loved clothes a fresh life. Save ~2,700L water per item!
-        </span>
-        <Link to="/shop" className="underline underline-offset-2 hover:text-emerald-300 ml-1 shrink-0 font-semibold">
-          Drops &rarr;
+      <div className="bg-rethread-900 text-stone-200 text-xs h-8 px-4 flex items-center justify-center gap-2">
+        <span className="truncate">Every piece is second-hand or vintage, with an honest condition grade</span>
+        <Link to="/shop" className="shrink-0 text-stone-50 underline underline-offset-2 decoration-stone-500 hover:decoration-stone-50 transition-colors">
+          New arrivals
         </Link>
       </div>
 
@@ -56,15 +52,15 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center gap-4 sm:gap-8">
             <Link to="/" className="flex items-center gap-2 group">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-rethread-700 flex items-center justify-center text-white shadow-sm group-hover:bg-rethread-800 transition">
-                <Leaf className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-300 transform -rotate-12" />
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-rethread-700 flex items-center justify-center text-white">
+                <Leaf className="w-4 h-4 -rotate-12" />
               </div>
               <div>
-                <span className="text-xl sm:text-2xl font-bold font-display tracking-tight text-rethread-900 block leading-tight">
+                <span className="text-xl sm:text-2xl font-medium font-display text-rethread-900 block leading-tight">
                   rethread<span className="text-vintage-terracotta">.</span>
                 </span>
-                <span className="text-[9px] sm:text-[10px] tracking-widest text-stone-500 uppercase block font-semibold">
-                  Pre-loved & Vintage
+                <span className="text-[11px] text-stone-500 block">
+                  Second-hand and vintage
                 </span>
               </div>
             </Link>
@@ -72,11 +68,10 @@ const Navbar = () => {
             {/* Desktop Navigation Links */}
             <div className="hidden lg:flex items-center space-x-6 text-sm font-medium text-stone-700">
               <Link to="/shop" className="hover:text-rethread-700 transition">
-                Browse All
+                Shop all
               </Link>
-              <Link to="/shop?category=Vintage%20%26%20Rare" className="hover:text-rethread-700 transition flex items-center gap-1">
-                <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-                Vintage & Rare
+              <Link to="/shop?category=Vintage%20%26%20Rare" className="hover:text-rethread-700 transition">
+                Vintage and rare
               </Link>
               <Link to="/shop?gender=Women" className="hover:text-rethread-700 transition">
                 Women
@@ -84,8 +79,8 @@ const Navbar = () => {
               <Link to="/shop?gender=Men" className="hover:text-rethread-700 transition">
                 Men
               </Link>
-              <Link to="/eco-impact" className="hover:text-rethread-700 transition text-emerald-800">
-                Eco Impact
+              <Link to="/eco-impact" className="hover:text-rethread-700 transition">
+                Eco impact
               </Link>
             </div>
           </div>
@@ -97,7 +92,7 @@ const Navbar = () => {
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search vintage denim, jackets..."
+                placeholder="Search"
                 className="w-full pl-9 pr-4 py-2 bg-stone-100/90 hover:bg-stone-100 focus:bg-white text-xs sm:text-sm rounded-full border border-stone-200 focus:outline-none focus:ring-2 focus:ring-rethread-600 transition"
               />
               <Search className="w-4 h-4 text-stone-400 absolute left-3 top-2.5" />
@@ -109,11 +104,10 @@ const Navbar = () => {
             {/* Sell Button */}
             <Link
               to="/sell"
-              className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-full bg-rethread-700 hover:bg-rethread-800 text-white text-xs sm:text-sm font-medium shadow-sm transition transform hover:-translate-y-0.5"
+              className="inline-flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-rethread-700 hover:bg-rethread-800 text-white text-xs sm:text-sm font-medium shadow-sm transition"
             >
-              <PlusCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-300" />
-              <span className="hidden xs:inline">Sell</span>
-              <span className="hidden sm:inline">Clothes</span>
+              <PlusCircle className="w-4 h-4" />
+              <span className="hidden sm:inline">Sell</span>
             </Link>
 
             {/* Wishlist */}
@@ -124,7 +118,7 @@ const Navbar = () => {
             >
               <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
               {wishlist.length > 0 && (
-                <span className="absolute top-0 right-0 sm:top-1 sm:right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 bg-vintage-terracotta text-white text-[9px] sm:text-[10px] font-bold rounded-full flex items-center justify-center">
+                <span className="absolute top-0 right-0 sm:top-1 sm:right-1 w-4 h-4 sm:w-4 sm:h-4 bg-vintage-terracotta text-white text-[11px] font-medium rounded-full flex items-center justify-center">
                   {wishlist.length}
                 </span>
               )}
@@ -134,11 +128,11 @@ const Navbar = () => {
             <Link
               to="/cart"
               className="relative p-1.5 sm:p-2 text-stone-600 hover:text-rethread-700 hover:bg-stone-100 rounded-full transition"
-              title="Eco-Bag"
+              title="Bag"
             >
               <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5" />
               {itemsCount > 0 && (
-                <span className="absolute top-0 right-0 sm:top-1 sm:right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 bg-rethread-700 text-white text-[9px] sm:text-[10px] font-bold rounded-full flex items-center justify-center">
+                <span className="absolute top-0 right-0 sm:top-1 sm:right-1 w-4 h-4 sm:w-4 sm:h-4 bg-rethread-700 text-white text-[11px] font-medium rounded-full flex items-center justify-center">
                   {itemsCount}
                 </span>
               )}
@@ -154,9 +148,9 @@ const Navbar = () => {
                   <img
                     src={user.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100'}
                     alt={user.name}
-                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover ring-2 ring-rethread-500"
+                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover ring-1 ring-stone-900/10"
                   />
-                  <span className="hidden md:inline text-xs font-semibold text-stone-700 max-w-[80px] truncate">
+                  <span className="hidden md:inline text-xs text-stone-700 max-w-[80px] truncate">
                     {user.name.split(' ')[0]}
                   </span>
                 </button>
@@ -164,52 +158,52 @@ const Navbar = () => {
                 {userDropdownOpen && (
                   <div
                     onMouseLeave={() => setUserDropdownOpen(false)}
-                    className="absolute right-0 mt-2 w-56 bg-white rounded-2xl shadow-xl border border-stone-100 py-2 z-50 animate-fadeIn"
+                    className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-[0_8px_24px_rgba(0,0,0,0.08)] border border-stone-900/10 py-2 z-50"
                   >
                     <div className="px-4 py-2 border-b border-stone-100">
                       <p className="text-xs text-stone-400 font-medium">Signed in as</p>
-                      <p className="text-sm font-semibold text-stone-800 truncate">{user.name}</p>
-                      <div className="mt-1 flex items-center gap-1.5 text-xs text-emerald-700 font-medium bg-emerald-50 px-2 py-0.5 rounded-md">
-                        <Leaf className="w-3 h-3 text-emerald-600" />
-                        <span>{user.ecoPoints || 50} Eco Points</span>
+                      <p className="text-sm font-medium text-stone-800 truncate">{user.name}</p>
+                      <div className="mt-1 flex items-center gap-1 text-xs text-stone-500">
+                        <Leaf className="w-3.5 h-3.5 text-rethread-700" />
+                        <span className="tabular-nums">{user.ecoPoints || 50} Eco Points</span>
                       </div>
                     </div>
 
                     <Link
                       to="/profile"
                       onClick={() => setUserDropdownOpen(false)}
-                      className="flex items-center gap-2.5 px-4 py-2 text-sm text-stone-700 hover:bg-stone-50 transition"
+                      className="flex items-center gap-3 px-4 py-2 text-sm text-stone-700 hover:bg-stone-50 transition"
                     >
                       <UserIcon className="w-4 h-4 text-stone-500" />
-                      <span>My Profile & Closet</span>
+                      <span>Profile and closet</span>
                     </Link>
 
                     <Link
                       to="/orders"
                       onClick={() => setUserDropdownOpen(false)}
-                      className="flex items-center gap-2.5 px-4 py-2 text-sm text-stone-700 hover:bg-stone-50 transition"
+                      className="flex items-center gap-3 px-4 py-2 text-sm text-stone-700 hover:bg-stone-50 transition"
                     >
                       <Package className="w-4 h-4 text-stone-500" />
-                      <span>My Purchases</span>
+                      <span>Purchases</span>
                     </Link>
 
                     <Link
                       to="/profile?tab=listings"
                       onClick={() => setUserDropdownOpen(false)}
-                      className="flex items-center gap-2.5 px-4 py-2 text-sm text-stone-700 hover:bg-stone-50 transition"
+                      className="flex items-center gap-3 px-4 py-2 text-sm text-stone-700 hover:bg-stone-50 transition"
                     >
                       <Tag className="w-4 h-4 text-stone-500" />
-                      <span>My Listed Clothes</span>
+                      <span>Your listings</span>
                     </Link>
 
                     {isAdmin && (
                       <Link
                         to="/admin"
                         onClick={() => setUserDropdownOpen(false)}
-                        className="flex items-center gap-2.5 px-4 py-2 text-sm text-amber-700 bg-amber-50/60 hover:bg-amber-100/60 transition"
+                        className="flex items-center gap-3 px-4 py-2 text-sm text-stone-700 hover:bg-stone-50 transition"
                       >
-                        <ShieldCheck className="w-4 h-4 text-amber-600" />
-                        <span>Admin Dashboard</span>
+                        <ShieldCheck className="w-4 h-4 text-stone-500" />
+                        <span>Admin</span>
                       </Link>
                     )}
 
@@ -219,10 +213,10 @@ const Navbar = () => {
                           setUserDropdownOpen(false);
                           logout();
                         }}
-                        className="w-full text-left flex items-center gap-2.5 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition"
+                        className="w-full text-left flex items-center gap-3 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition"
                       >
-                        <LogOut className="w-4 h-4 text-red-500" />
-                        <span>Sign Out</span>
+                        <LogOut className="w-4 h-4" />
+                        <span>Sign out</span>
                       </button>
                     </div>
                   </div>
@@ -231,9 +225,9 @@ const Navbar = () => {
             ) : (
               <Link
                 to="/login"
-                className="hidden sm:inline-block text-xs sm:text-sm font-semibold text-stone-700 hover:text-rethread-700 px-3 py-2 rounded-lg hover:bg-stone-100 transition"
+                className="hidden sm:inline-block text-xs sm:text-sm font-medium text-stone-700 hover:text-rethread-700 px-3 py-2 rounded-lg hover:bg-stone-100 transition"
               >
-                Sign In
+                Sign in
               </Link>
             )}
 
@@ -257,7 +251,7 @@ const Navbar = () => {
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search vintage denim, jackets..."
+                placeholder="Search"
                 className="w-full pl-9 pr-4 py-2 bg-white text-xs rounded-full border border-stone-300 focus:outline-none focus:ring-2 focus:ring-rethread-600"
               />
               <Search className="w-4 h-4 text-stone-400 absolute left-5 top-2.5" />
@@ -266,16 +260,16 @@ const Navbar = () => {
             {/* User status card on mobile */}
             {user ? (
               <div className="mx-2 p-3 bg-white rounded-2xl border border-stone-200 shadow-sm flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
+                <div className="flex items-center gap-3">
                   <img
                     src={user.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100'}
                     alt={user.name}
-                    className="w-9 h-9 rounded-full object-cover ring-2 ring-rethread-500"
+                    className="w-9 h-9 rounded-full object-cover ring-1 ring-stone-900/10"
                   />
                   <div>
-                    <p className="text-xs font-bold text-stone-900 leading-tight">{user.name}</p>
-                    <p className="text-[10px] text-emerald-700 font-semibold flex items-center gap-1 mt-0.5">
-                      <Leaf className="w-3 h-3 text-emerald-600" />
+                    <p className="text-xs font-medium text-stone-900 leading-tight">{user.name}</p>
+                    <p className="text-[11px] text-stone-500 flex items-center gap-1 mt-0.5 tabular-nums">
+                      <Leaf className="w-3.5 h-3.5 text-rethread-700" />
                       {user.ecoPoints || 50} Eco Points
                     </p>
                   </div>
@@ -286,7 +280,7 @@ const Navbar = () => {
                     logout();
                   }}
                   className="p-1.5 text-stone-400 hover:text-red-500"
-                  title="Sign Out"
+                  title="Sign out"
                 >
                   <LogOut className="w-4 h-4" />
                 </button>
@@ -296,9 +290,9 @@ const Navbar = () => {
                 <Link
                   to="/login"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full py-2 bg-stone-900 text-white text-xs font-semibold rounded-xl block text-center shadow"
+                  className="w-full py-2 bg-stone-900 text-white text-xs font-medium rounded-xl block text-center shadow"
                 >
-                  Sign In to Account
+                  Sign in
                 </Link>
               </div>
             )}
@@ -310,36 +304,35 @@ const Navbar = () => {
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-xl hover:bg-stone-100"
               >
-                Browse All Drops
+                Shop all
               </Link>
               <Link
                 to="/shop?category=Vintage%20%26%20Rare"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-xl hover:bg-stone-100 text-amber-800 font-semibold flex items-center gap-1.5"
+                className="px-3 py-2 rounded-xl hover:bg-stone-100"
               >
-                <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-                Vintage & Rare Curated
+                Vintage and rare
               </Link>
               <Link
                 to="/shop?gender=Women"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-xl hover:bg-stone-100"
               >
-                Women's Thrift
+                Women
               </Link>
               <Link
                 to="/shop?gender=Men"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-xl hover:bg-stone-100"
               >
-                Men's Thrift
+                Men
               </Link>
               <Link
                 to="/eco-impact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-xl hover:bg-emerald-50 text-emerald-800"
+                className="px-3 py-2 rounded-xl hover:bg-stone-100"
               >
-                Eco Impact Tracker
+                Eco impact
               </Link>
 
               {user && (
@@ -349,22 +342,22 @@ const Navbar = () => {
                     onClick={() => setMobileMenuOpen(false)}
                     className="px-3 py-2 rounded-xl hover:bg-stone-100"
                   >
-                    My Profile & Closet
+                    Profile and closet
                   </Link>
                   <Link
                     to="/orders"
                     onClick={() => setMobileMenuOpen(false)}
                     className="px-3 py-2 rounded-xl hover:bg-stone-100"
                   >
-                    My Purchases
+                    Purchases
                   </Link>
                   {isAdmin && (
                     <Link
                       to="/admin"
                       onClick={() => setMobileMenuOpen(false)}
-                      className="px-3 py-2 rounded-xl bg-amber-50 text-amber-900 font-semibold"
+                      className="px-3 py-2 rounded-xl hover:bg-stone-100"
                     >
-                      Admin Console
+                      Admin
                     </Link>
                   )}
                 </>
@@ -373,9 +366,9 @@ const Navbar = () => {
               <Link
                 to="/sell"
                 onClick={() => setMobileMenuOpen(false)}
-                className="mt-2 px-3 py-2.5 bg-rethread-700 text-white font-semibold rounded-xl text-center shadow"
+                className="mt-2 px-3 py-3 bg-rethread-700 text-white font-medium rounded-xl text-center shadow"
               >
-                + Sell Your Clothes
+                Sell your clothes
               </Link>
             </div>
           </div>

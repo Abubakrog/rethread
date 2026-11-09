@@ -16,7 +16,7 @@ export const CartProvider = ({ children }) => {
   const addToCart = (product, selectedSize) => {
     const existing = cartItems.find((item) => item.product === product._id);
     if (existing) {
-      toast('Item is already in your eco-bag!', { icon: '🛍️' });
+      toast('Already in your bag');
       return false;
     }
 
@@ -36,13 +36,13 @@ export const CartProvider = ({ children }) => {
     };
 
     setCartItems((prev) => [...prev, newItem]);
-    toast.success(`Added "${product.title}" to bag! 🌿`);
+    toast.success(`Added “${product.title}” to your bag`);
     return true;
   };
 
   const removeFromCart = (productId) => {
     setCartItems((prev) => prev.filter((item) => item.product !== productId));
-    toast('Item removed from bag', { icon: '🗑️' });
+    toast('Removed from your bag');
   };
 
   const clearCart = () => {

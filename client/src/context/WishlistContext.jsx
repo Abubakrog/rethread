@@ -35,10 +35,10 @@ export const WishlistProvider = ({ children }) => {
         const { data } = await api.post(`/users/wishlist/${product._id}`);
         if (isAlreadySaved) {
           setWishlist((prev) => prev.filter((item) => (item._id || item) !== product._id));
-          toast('Removed from saved items', { icon: '🤍' });
+          toast('Removed from saved');
         } else {
           setWishlist((prev) => [...prev, product]);
-          toast.success('Saved to your wishlist! ❤️');
+          toast.success('Saved');
         }
       } catch (err) {
         toast.error('Could not update wishlist');
@@ -48,10 +48,10 @@ export const WishlistProvider = ({ children }) => {
       let updated;
       if (isAlreadySaved) {
         updated = wishlist.filter((item) => (item._id || item) !== product._id);
-        toast('Removed from wishlist', { icon: '🤍' });
+        toast('Removed from saved');
       } else {
         updated = [...wishlist, product];
-        toast.success('Saved to wishlist! ❤️');
+        toast.success('Saved');
       }
       setWishlist(updated);
       localStorage.setItem('rethread_wishlist', JSON.stringify(updated));

@@ -36,7 +36,7 @@ const AdminDashboard = () => {
       setUsers(usersRes.data || []);
     } catch (err) {
       console.error('Error fetching admin data:', err);
-      toast.error('Failed to load admin metrics');
+      toast.error('Could not load admin figures');
     } finally {
       setLoading(false);
     }
@@ -61,7 +61,7 @@ const AdminDashboard = () => {
       toast.success('Listing removed');
       setProducts((prev) => prev.filter((p) => p._id !== id));
     } catch (err) {
-      toast.error('Failed to delete product');
+      toast.error('Could not remove the listing');
     }
   };
 
@@ -86,8 +86,8 @@ const AdminDashboard = () => {
           <ShieldCheck className="w-6 h-6" />
         </div>
         <div>
-          <h1 className="text-3xl font-display font-bold text-stone-900">
-            Admin Console
+          <h1 className="text-3xl font-display font-medium text-stone-900">
+            Admin console
           </h1>
           <p className="text-xs text-stone-500 mt-0.5">
             Oversee marketplace inventory, member accounts, and order fulfillment.
@@ -98,32 +98,32 @@ const AdminDashboard = () => {
       {/* Top Metric Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 my-8">
         <div className="bg-white p-5 rounded-3xl border border-stone-200 shadow-sm">
-          <span className="text-[10px] uppercase font-bold text-stone-400">Total Sales</span>
-          <p className="text-2xl font-bold font-display text-stone-900 mt-1">
+          <span className="text-[11px] font-medium text-stone-400">Total sales</span>
+          <p className="text-2xl font-medium font-display text-stone-900 mt-1">
             ₹{totalSales.toLocaleString()}
           </p>
           <span className="text-[11px] text-emerald-700">Platform GMV</span>
         </div>
 
         <div className="bg-white p-5 rounded-3xl border border-stone-200 shadow-sm">
-          <span className="text-[10px] uppercase font-bold text-stone-400">Total Orders</span>
-          <p className="text-2xl font-bold font-display text-stone-900 mt-1">
+          <span className="text-[11px] font-medium text-stone-400">Total orders</span>
+          <p className="text-2xl font-medium font-display text-stone-900 mt-1">
             {orders.length}
           </p>
           <span className="text-[11px] text-stone-500">Processed</span>
         </div>
 
         <div className="bg-white p-5 rounded-3xl border border-stone-200 shadow-sm">
-          <span className="text-[10px] uppercase font-bold text-stone-400">Listed Clothes</span>
-          <p className="text-2xl font-bold font-display text-stone-900 mt-1">
+          <span className="text-[11px] font-medium text-stone-400">Listed clothes</span>
+          <p className="text-2xl font-medium font-display text-stone-900 mt-1">
             {products.length}
           </p>
           <span className="text-[11px] text-stone-500">Curated pieces</span>
         </div>
 
         <div className="bg-white p-5 rounded-3xl border border-stone-200 shadow-sm">
-          <span className="text-[10px] uppercase font-bold text-stone-400">Community Users</span>
-          <p className="text-2xl font-bold font-display text-stone-900 mt-1">
+          <span className="text-[11px] font-medium text-stone-400">Community users</span>
+          <p className="text-2xl font-medium font-display text-stone-900 mt-1">
             {users.length}
           </p>
           <span className="text-[11px] text-stone-500">Registered</span>
@@ -134,7 +134,7 @@ const AdminDashboard = () => {
       <div className="flex gap-4 border-b border-stone-200 mb-6">
         <button
           onClick={() => setActiveTab('orders')}
-          className={`pb-3 text-xs font-bold border-b-2 transition ${
+          className={`pb-3 text-xs font-medium border-b-2 transition ${
             activeTab === 'orders'
               ? 'border-rethread-700 text-rethread-900'
               : 'border-transparent text-stone-400 hover:text-stone-600'
@@ -144,7 +144,7 @@ const AdminDashboard = () => {
         </button>
         <button
           onClick={() => setActiveTab('products')}
-          className={`pb-3 text-xs font-bold border-b-2 transition ${
+          className={`pb-3 text-xs font-medium border-b-2 transition ${
             activeTab === 'products'
               ? 'border-rethread-700 text-rethread-900'
               : 'border-transparent text-stone-400 hover:text-stone-600'
@@ -154,7 +154,7 @@ const AdminDashboard = () => {
         </button>
         <button
           onClick={() => setActiveTab('users')}
-          className={`pb-3 text-xs font-bold border-b-2 transition ${
+          className={`pb-3 text-xs font-medium border-b-2 transition ${
             activeTab === 'users'
               ? 'border-rethread-700 text-rethread-900'
               : 'border-transparent text-stone-400 hover:text-stone-600'
@@ -169,30 +169,30 @@ const AdminDashboard = () => {
         <div className="bg-white rounded-3xl border border-stone-200 shadow-sm overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
-              <thead className="bg-stone-50 text-stone-600 font-bold uppercase tracking-wider border-b border-stone-200">
+              <thead className="bg-stone-50 text-stone-600 font-medium border-b border-stone-200">
                 <tr>
                   <th className="p-4">Order ID</th>
                   <th className="p-4">Buyer</th>
                   <th className="p-4">Items</th>
                   <th className="p-4">Total</th>
                   <th className="p-4">Payment</th>
-                  <th className="p-4">Fulfillment Status</th>
+                  <th className="p-4">Fulfillment status</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-stone-100">
                 {orders.map((o) => (
                   <tr key={o._id} className="hover:bg-stone-50/50">
-                    <td className="p-4 font-mono font-bold text-stone-700">
+                    <td className="p-4 font-mono font-medium text-stone-700">
                       #{o._id.substring(o._id.length - 6).toUpperCase()}
                     </td>
                     <td className="p-4">
-                      <p className="font-bold text-stone-900">{o.shippingAddress?.fullName || o.buyer?.name}</p>
+                      <p className="font-medium text-stone-900">{o.shippingAddress?.fullName || o.buyer?.name}</p>
                       <p className="text-[11px] text-stone-400">{o.shippingAddress?.city}</p>
                     </td>
                     <td className="p-4">{o.orderItems.length} item(s)</td>
-                    <td className="p-4 font-bold text-stone-900">₹{o.totalPrice.toLocaleString()}</td>
+                    <td className="p-4 font-medium text-stone-900">₹{o.totalPrice.toLocaleString()}</td>
                     <td className="p-4">
-                      <span className={`px-2 py-0.5 rounded text-[10px] font-semibold ${
+                      <span className={`px-2 py-0.5 rounded text-[11px] font-medium ${
                         o.isPaid ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'
                       }`}>
                         {o.isPaid ? 'Paid' : 'COD'}
@@ -202,7 +202,7 @@ const AdminDashboard = () => {
                       <select
                         value={o.orderStatus}
                         onChange={(e) => handleUpdateOrderStatus(o._id, e.target.value)}
-                        className="bg-stone-100 border border-stone-200 rounded-lg px-2 py-1 text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-rethread-600 cursor-pointer"
+                        className="bg-stone-100 border border-stone-200 rounded-lg px-2 py-1 text-xs font-medium focus:outline-none focus:ring-1 focus:ring-rethread-600 cursor-pointer"
                       >
                         <option value="Placed">Placed</option>
                         <option value="Processing">Processing</option>
@@ -224,11 +224,11 @@ const AdminDashboard = () => {
         <div className="bg-white rounded-3xl border border-stone-200 shadow-sm overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
-              <thead className="bg-stone-50 text-stone-600 font-bold uppercase tracking-wider border-b border-stone-200">
+              <thead className="bg-stone-50 text-stone-600 font-medium border-b border-stone-200">
                 <tr>
                   <th className="p-4">Garment</th>
                   <th className="p-4">Category</th>
-                  <th className="p-4">Size & Condition</th>
+                  <th className="p-4">Size and condition</th>
                   <th className="p-4">Price</th>
                   <th className="p-4">Status</th>
                   <th className="p-4 text-right">Actions</th>
@@ -240,7 +240,7 @@ const AdminDashboard = () => {
                     <td className="p-4 flex items-center gap-3">
                       <img src={p.images[0]} alt="" className="w-10 h-12 object-cover rounded-lg bg-stone-100" />
                       <div>
-                        <p className="font-bold text-stone-900 line-clamp-1">{p.title}</p>
+                        <p className="font-medium text-stone-900 line-clamp-1">{p.title}</p>
                         <p className="text-[11px] text-stone-400">{p.brand}</p>
                       </div>
                     </td>
@@ -248,9 +248,9 @@ const AdminDashboard = () => {
                     <td className="p-4">
                       {p.size} • <span className="text-stone-500">{p.condition}</span>
                     </td>
-                    <td className="p-4 font-bold text-stone-900">₹{p.price.toLocaleString()}</td>
+                    <td className="p-4 font-medium text-stone-900">₹{p.price.toLocaleString()}</td>
                     <td className="p-4">
-                      <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase ${
+                      <span className={`px-2 py-0.5 rounded text-[11px] font-medium ${
                         p.status === 'sold' ? 'bg-stone-200 text-stone-700' : 'bg-emerald-100 text-emerald-800'
                       }`}>
                         {p.status}
@@ -278,7 +278,7 @@ const AdminDashboard = () => {
         <div className="bg-white rounded-3xl border border-stone-200 shadow-sm overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
-              <thead className="bg-stone-50 text-stone-600 font-bold uppercase tracking-wider border-b border-stone-200">
+              <thead className="bg-stone-50 text-stone-600 font-medium border-b border-stone-200">
                 <tr>
                   <th className="p-4">User</th>
                   <th className="p-4">Email</th>
@@ -293,18 +293,18 @@ const AdminDashboard = () => {
                   <tr key={u._id} className="hover:bg-stone-50/50">
                     <td className="p-4 flex items-center gap-3">
                       <img src={u.avatar} alt="" className="w-8 h-8 rounded-full object-cover" />
-                      <span className="font-bold text-stone-900">{u.name}</span>
+                      <span className="font-medium text-stone-900">{u.name}</span>
                     </td>
                     <td className="p-4 text-stone-600">{u.email}</td>
                     <td className="p-4 text-stone-600">{u.city || 'India'}</td>
                     <td className="p-4">
-                      <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
+                      <span className={`px-2 py-0.5 rounded text-[11px] font-medium ${
                         u.role === 'admin' ? 'bg-amber-100 text-amber-800' : 'bg-stone-100 text-stone-700'
                       }`}>
                         {u.role}
                       </span>
                     </td>
-                    <td className="p-4 font-bold text-emerald-700">🌱 {u.ecoPoints || 50}</td>
+                    <td className="p-4 tabular-nums text-stone-700">{u.ecoPoints || 50}</td>
                     <td className="p-4 text-right">
                       {u.role !== 'admin' && (
                         <button
